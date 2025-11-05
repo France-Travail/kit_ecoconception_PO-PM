@@ -5,6 +5,8 @@ Ce dépôt contient le code source d'un site web statique d'auto-formation à l'
 
 **➡️ [Accéder à l'atelier en ligne](https://france-travail.github.io/kit_ecoconception_PO-PM/)** ---
 
+Il est complémentaire au Référentiel d'écoconception, également disponible sur github https://github.com/France-Travail/referentiel-ecoconception, ainsi qu'au kit de sensibilisation à la conception écoresponsable https://github.com/France-Travail/sensibilisation-conception-responsable, aux formations à l'écoconception destinées aux équipes techniques https://github.com/France-Travail/formation-ecoconception-dev/.
+
 ## À propos
 
 Ce site web est un kit d'atelier "prêt à l'emploi" pour s'acculturer aux concepts de la sobriété numérique. Initialement basé sur des supports de formation internes, il a été rendu générique pour être utilisable par toute organisation.
