@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ressources & Outils - Tous les liens vers les outils de diagnostic, calculateurs et référentiels d'écoconception">
+    <meta name="keywords" content="ressources, outils, Green IT Analysis, Impact CO2, RGESN, référentiels, écoconception">
+    <meta name="author" content="Atelier Écoconception">
+    <title>Ressources & Outils - Atelier Écoconception</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
+    <style>
+        /* Styles spécifiques pour la page ressources */
+        .resources-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .tool-card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tool-card:hover {
+            border-color: #3498db;
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.15);
+            transform: translateY(-4px);
+        }
+
+        .tool-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .tool-icon {
+            font-size: 2.5rem;
+        }
+
+        .tool-card h3 {
+            color: #2c3e50;
+            margin: 0;
+            font-size: 1.3rem;
+        }
+
+        .tool-category {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .tool-description {
+            flex-grow: 1;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .tool-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .tool-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.25rem;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            text-align: center;
+            justify-content: center;
+        }
+
+        .tool-link:hover {
+            background: #2980b9;
+            transform: translateX(4px);
+        }
+
+        .tool-link.secondary {
+            background: white;
+            color: #3498db;
+            border: 2px solid #3498db;
+        }
+
+        .tool-link.secondary:hover {
+            background: #3498db;
+            color: white;
+        }
+
+        .external-icon {
+            font-size: 0.9rem;
+        }
+
+        .reference-list {
+            display: grid;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .reference-item {
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 1.5rem;
+            border-radius: 4px;
+        }
+
+        .reference-item h3 {
+            color: #2c3e50;
+            margin-bottom: 0.75rem;
+        }
+
+        .reference-item p {
+            color: #555;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .reference-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .reference-link:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+
+        .info-box {
+            background: #e8f4f8;
+            border-left: 4px solid #3498db;
+            padding: 1.5rem;
+            border-radius: 4px;
+            margin: 2rem 0;
+        }
+
+        .info-box h3 {
+            color: #2c3e50;
+            margin-bottom: 0.75rem;
+        }
+
+        .info-box p {
+            color: #555;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+    <header role="banner">
+        <nav class="main-nav" role="navigation" aria-label="Navigation principale">
+            <div class="nav-container">
+                <a href="index.html" class="logo-link" title="Retour à l'accueil">
+                    <img src="assets/images/logo.svg" alt="Atelier Écoconception - Accueil" class="logo" width="200" height="40">
+                </a>
+                
+                <button class="nav-toggle" aria-label="Menu de navigation" aria-expanded="false" aria-controls="nav-links">
+                    <span class="nav-toggle-bar"></span>
+                    <span class="nav-toggle-bar"></span>
+                    <span class="nav-toggle-bar"></span>
+                </button>
+                
+                <ul class="nav-links" id="nav-links">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="modules/index.html" class="nav-link">Modules</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="ressources.html" class="nav-link" aria-current="page">Ressources</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <!-- Introduction -->
+        <section class="hero" aria-labelledby="resources-title">
+            <div class="hero-content">
+                <h1 id="resources-title">Ressources & Outils</h1>
+                <p class="resources-intro">
+                    Retrouvez ici tous les liens directs vers les outils de diagnostic, les calculateurs et les référentiels mentionnés durant l'atelier. Cette page sert de <strong>boîte à outils</strong> pour vos futurs projets d'écoconception.
+                </p>
+            </div>
+        </section>
+
+        <!-- Section Outils -->
+        <section id="outils" class="section-content" aria-labelledby="tools-title">
+            <div class="container">
+                <h2 id="tools-title">Outils de l'atelier</h2>
+                
+                <div class="tools-grid">
+                    <!-- Outil 1 : Green IT Analysis -->
+                    <article class="tool-card">
+                        <div class="tool-header">
+                            <span class="tool-icon" aria-hidden="true">🌿</span>
+                            <h3>Green IT Analysis</h3>
+                        </div>
+                        <span class="tool-category">Extension navigateur</span>
+                        <p class="tool-description">
+                            L'outil utilisé dans le <strong>Module 2</strong> pour auditer un service et obtenir l'<strong>EcoIndex</strong>, la complexité (DOM) et le poids de la page. Indispensable pour vos diagnostics.
+                        </p>
+                        <div class="tool-links">
+                            <a href="https://addons.mozilla.org/fr/firefox/addon/greenit-analysis/" target="_blank" rel="noopener noreferrer" class="tool-link">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                    <polyline points="15 3 21 3 21 9"></polyline>
+                                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                                </svg>
+                                Télécharger pour Firefox
+                            </a>
+                            <a href="https://chromewebstore.google.com/detail/greenit-analysis/mofbfhffeklkbebfclfaiifefjflcpad" target="_blank" rel="noopener noreferrer" class="tool-link">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                    <polyline points="15 3 21 3 21 9"></polyline>
+                                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                                </svg>
+                                Télécharger pour Chrome
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Outil 2 : Impact CO2 -->
+                    <article class="tool-card">
+                        <div class="tool-header">
+                            <span class="tool-icon" aria-hidden="true">🌍</span>
+                            <h3>Impact CO₂</h3>
+                        </div>
+                        <span class="tool-category">Simulateur en ligne</span>
+                        <p class="tool-description">
+                            Le calculateur utilisé dans le <strong>Module 3</strong> pour traduire les données techniques (gCO2e) en équivalents concrets (km en voiture, t-shirts, repas...). Développé par l'ADEME.
+                        </p>
+                        <div class="tool-links">
+                            <a href="https://impactco2.fr/" target="_blank" rel="noopener noreferrer" class="tool-link">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                    <polyline points="15 3 21 3 21 9"></polyline>
+                                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                                </svg>
+                                Accéder au simulateur
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Outil 3 : Outils de développement -->
+                    <article class="tool-card">
+                        <div class="tool-header">
+                            <span class="tool-icon" aria-hidden="true">🔧</span>
+                            <h3>Outils de développement</h3>
+                        </div>
+                        <span class="tool-category">Intégrés au navigateur</span>
+                        <p class="tool-description">
+                            Permettent d'analyser l'onglet <strong>"Réseau"</strong> (Network) pour voir le nombre de requêtes et le poids total de la page (<strong>Module 2</strong>). Disponibles sur tous les navigateurs modernes.
+                        </p>
+                        <div class="tool-links">
+                            <div class="info-box" style="margin: 0; padding: 1rem; background: #f8f9fa;">
+                                <p style="margin: 0; font-size: 0.9rem; color: #555;">
+                                    <strong>Raccourci :</strong> Appuyez sur <kbd>F12</kbd> ou faites un clic droit > <strong>"Inspecter"</strong>
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Références -->
+        <section id="references" class="section-content" aria-labelledby="references-title">
+            <div class="container">
+                <h2 id="references-title">Pour aller plus loin</h2>
+                <p class="section-intro">
+                    Approfondissez vos connaissances avec les référentiels officiels et les ressources de la communauté.
+                </p>
+
+                <div class="reference-list">
+                    <!-- Référence 1 : RGESN -->
+                    <article class="reference-item">
+                        <h3>📘 Référentiel Général d'Écoconception de Services Numériques (RGESN)</h3>
+                        <p>
+                            Le référentiel officiel français pour l'écoconception de services numériques. C'est la source de nombreuses bonnes pratiques vues dans l'atelier. Il propose <strong>79 critères</strong> organisés par thématique (stratégie, spécifications, architecture, UX/UI, contenus, frontend, backend, hébergement).
+                        </p>
+                        <a href="https://ecoresponsable.numerique.gouv.fr/publications/referentiel-general-ecoconception/" target="_blank" rel="noopener noreferrer" class="reference-link">
+                            Consulter le RGESN
+                            <span class="external-icon" aria-hidden="true">↗</span>
+                        </a>
+                    </article>
+
+                    <!-- Référence 2 : GR491 -->
+                    <article class="reference-item">
+                        <h3>📗 Référentiel Green IT (GR491)</h3>
+                        <p>
+                            Le référentiel du Collectif Green IT qui liste <strong>491 bonnes pratiques</strong> pour un numérique plus durable. Il couvre l'ensemble du cycle de vie des services numériques et propose des recommandations concrètes pour chaque métier.
+                        </p>
+                        <a href="https://gr491.isit-europe.org/" target="_blank" rel="noopener noreferrer" class="reference-link">
+                            Explorer le GR491
+                            <span class="external-icon" aria-hidden="true">↗</span>
+                        </a>
+                    </article>
+
+                    <!-- Référence 3 : Green IT -->
+                    <article class="reference-item">
+                        <h3>🌐 Communauté Green IT</h3>
+                        <p>
+                            La communauté des acteurs du numérique responsable en France. Retrouvez des articles, des études, des formations et des événements autour de l'écoconception et de la sobriété numérique.
+                        </p>
+                        <a href="https://www.greenit.fr/" target="_blank" rel="noopener noreferrer" class="reference-link">
+                            Visiter GreenIT.fr
+                            <span class="external-icon" aria-hidden="true">↗</span>
+                        </a>
+                    </article>
+
+                    <!-- Référence 4 : Collectif Conception Numérique Responsable -->
+                    <article class="reference-item">
+                        <h3>👥 Institut du Numérique Responsable (INR)</h3>
+                        <p>
+                            L'INR fédère les organisations engagées dans la réduction de l'empreinte environnementale et sociale du numérique. Accédez à des ressources, des labels et des formations certifiantes.
+                        </p>
+                        <a href="https://institutnr.org/" target="_blank" rel="noopener noreferrer" class="reference-link">
+                            Découvrir l'INR
+                            <span class="external-icon" aria-hidden="true">↗</span>
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="cta-section" aria-labelledby="cta-title">
+            <div class="container">
+                <div class="cta-content">
+                    <h2 id="cta-title">Prêt à passer à l'action ?</h2>
+                    <p>Utilisez ces ressources pour démarrer vos projets d'écoconception dès aujourd'hui.</p>
+                    <div class="cta-buttons">
+                        <a href="modules/index.html" class="btn-primary">Revoir les modules</a>
+                        <a href="index.html" class="btn-secondary">Retour à l'accueil</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer" role="contentinfo">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Navigation</h3>
+                <nav aria-label="Liens de navigation">
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="modules/index.html">Modules</a></li>
+                        <li><a href="ressources.html">Ressources</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="footer-section">
+                <h3>À propos</h3>
+                <p>Site d'atelier générique - Contenu adaptable pour votre organisation.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Modules de formation</h3>
+                <nav aria-label="Liens modules">
+                    <ul>
+                        <li><a href="modules/1-demarrage.html">Module 1 - Démarrage</a></li>
+                        <li><a href="modules/2-diagnostic-priorisation.html">Module 2 - Diagnostic</a></li>
+                        <li><a href="modules/3-communiquer.html">Module 3 - Communiquer</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 - Atelier Écoconception - Formation à la sobriété numérique</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

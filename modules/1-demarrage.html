@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Module 1 : Démarrage - Aligner l'équipe sur les rôles et évaluer la maturité en écoconception">
+    <meta name="keywords" content="écoconception, démarrage, maturité, responsabilités, bonnes pratiques">
+    <meta name="author" content="Atelier Écoconception">
+    <title>Module 1 : Démarrage - Atelier Écoconception</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="icon" type="image/svg+xml" href="../assets/images/logo.svg">
+    <style>
+        /* Styles spécifiques pour l'exercice interactif */
+        .practices-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .practice-card {
+            background: #fff;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .practice-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .practice-card.intruse-card {
+            border-color: #ff6b6b;
+            background-color: #fff5f5;
+        }
+
+        .practice-title {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        .choix-roles {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .role-btn {
+            flex: 1;
+            min-width: 80px;
+            padding: 0.6rem 1rem;
+            border: 2px solid #3498db;
+            background: white;
+            color: #3498db;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            font-size: 0.9rem;
+        }
+
+        .role-btn:hover {
+            background: #3498db;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .role-btn.selected {
+            background: #3498db;
+            color: white;
+        }
+
+        .role-btn.correct {
+            background: #27ae60;
+            border-color: #27ae60;
+            color: white;
+        }
+
+        .role-btn.incorrect {
+            background: #e74c3c;
+            border-color: #e74c3c;
+            color: white;
+        }
+
+        .role-btn.correct-answer-hint {
+            border-color: #27ae60;
+            border-width: 3px;
+            animation: pulse 1s ease-in-out;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .progress-indicator {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            margin: 1.5rem 0;
+            font-weight: 600;
+            color: #555;
+        }
+
+        .progress-indicator.complete {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .solution-container {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .solution {
+            background: #f8f9fa;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-top: 1rem;
+        }
+
+        .solution h3 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+        }
+
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .solution-column h4 {
+            color: #3498db;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #3498db;
+        }
+
+        .solution-column ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .solution-column li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .solution-column li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .callout-warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1.5rem;
+            border-radius: 4px;
+            margin: 2rem 0;
+        }
+
+        .callout-warning p {
+            margin: 0.5rem 0;
+        }
+
+        .radar-download {
+            background: #e8f4f8;
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .radar-download h4 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .download-btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 0.5rem;
+        }
+
+        .download-btn:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .download-btn svg {
+            margin-right: 0.5rem;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+    <header role="banner">
+        <nav class="main-nav" role="navigation" aria-label="Navigation principale">
+            <div class="nav-container">
+                <a href="../index.html" class="logo-link" title="Retour à l'accueil">
+                    <img src="../assets/images/logo.svg" alt="Atelier Écoconception - Accueil" class="logo" width="200" height="40">
+                </a>
+                
+                <button class="nav-toggle" aria-label="Menu de navigation" aria-expanded="false" aria-controls="nav-links">
+                    <span class="nav-toggle-bar"></span>
+                    <span class="nav-toggle-bar"></span>
+                    <span class="nav-toggle-bar"></span>
+                </button>
+                
+                <ul class="nav-links" id="nav-links">
+                    <li class="nav-item">
+                        <a href="../index.html" class="nav-link">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Modules</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../ressources.html" class="nav-link">Ressources</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <!-- Introduction du Module 1 -->
+        <section class="hero" aria-labelledby="module-title">
+            <div class="hero-content">
+                <h1 id="module-title">Module 1 : Démarrage</h1>
+                <p class="hero-description">
+                    Ce premier module est conçu pour aligner l'équipe. Avant de plonger dans la technique, nous allons clarifier deux points essentiels : <strong>Qui fait quoi ?</strong> et <strong>Où en sommes-nous ?</strong>
+                </p>
+            </div>
+        </section>
+
+        <!-- Exercice 1 : Le jeu des responsabilités -->
+        <section id="exercice-1" class="section-content" aria-labelledby="exercice-1-title">
+            <div class="container">
+                <div class="section-header">
+                    <img src="../assets/images/icone-puzzle.png" alt="" class="section-icon" aria-hidden="true" width="80" height="80">
+                    <a href="https://www.flaticon.com/free-icons/puzzle" title="puzzle icons">Puzzle icons created by monkik - Flaticon</a>
+                    <h2 id="exercice-1-title">Exercice 1 : Le jeu des responsabilités</h2>
+                </div>
+                
+                <p class="section-intro">
+                    Associez chaque bonne pratique de la liste suivante au rôle qui en est le principal responsable. <em>Astuce : un seul rôle par pratique !</em>
+                </p>
+
+                <div class="progress-indicator" id="progress-count">
+                    0 / 12 pratiques associées
+                </div>
+
+                <div class="practices-list">
+                    <article class="practice-card" data-practice="mvp">
+                        <h3 class="practice-title">Limiter les fonctionnalités (MVP)</h3>
+                        <div class="choix-roles">
+                            <button class="role-btn" data-role="ux">UX/UI</button>
+                            <button class="role-btn" data-role="pm">PM/PO</button>
+                            <button class="role-btn" data-role="dev">DEV</button>
+                        </div>
+                    </article>
+
+                    <article class="practice-card" data-practice="eliminer-fonctionnalites">
+                        <h3 class="practice-title">Éliminer les fonctionnalités non utilisées</h3>
+                        <div class="choix-roles">
+                            <button class="role-btn" data-role="ux">UX/UI</button>
+                            <button class="role-btn" data-role="pm">PM/PO</button>
+                            <button class="role-btn" data-role="dev">DEV</button>
+                        </div>
+                    </article>
+
+                    <article class="practice-card" data-practice="quantifier-besoin">
+                        <h3 class="practice-title">Quantifier précisément le besoin</h3>
+                        <div class="choix-roles">
+                            <button class="role-btn" data-role="ux">UX/UI</button>
+                            <button class="role-btn" data-role="pm">PM/PO</button>
+                            <button class="role-btn" data-role="dev">DEV</button>
+                        </div>
+                    </article>
+
+                    <article class="practice-card" data-practice="design-simple">
+                        <h3 class="practice-title">Favoriser un design simple, épuré</h3>
+                        <div class="choix-roles">
+                            <button class="role-btn" data-role="ux">UX/UI</button>
+                            <button class="role-btn" data-role="pm">PM/PO</button>
+                            <button class="role-btn" data-role="dev">DEV</button>
+                        </div>
+                    </article>
+
+                    <article class="practice-card" data-practice="pagination">
+                        <h3 class="practice-title">Préférer la pagination au scroll infini</h3>
+                        <div class="choix-roles">
+                            <button class="role-btn" data-role="ux">UX/UI</button>
+                            <button class="role-btn" data-role="pm">PM/PO</button>
+                            <button class="role-btn" data-role="dev">DEV</button>
+                        </div>
+                    </article>
+
+                    <article class="practice-card" data-practice="moteur-recherche">
+                        <h3 class="practice-title">Proposer un moteur de recherche efficace</h3>
+                        <div class="choix-roles">
+                            <button class="role-btn" data-role="ux">UX/UI</button>
+                            <button class="role-btn" data-role="pm">PM/PO</button>
+                            <button class="role-btn" data-role="dev">DEV</button>
+                        </div>
+                    </article>
+
+                    <article class="practice-card" data-practice="carrousel">
+                        <h3 class="practice-title">Intégrer un carrousel</h3>
+                        <div class="choix-roles">
+                            <button class="role-btn" data-role="ux">UX/UI</button>
+                            <button class="role-btn" data-role="pm">PM/PO</button>
+                            <button class="role-btn" data-role="dev">DEV</button>
+                        </div>
+                    </article>
+
+                    <article class="practice-card" data-practice="limiter-requetes">
+                        <h3 class="practice-title">Limiter le nombre de requêtes HTTP</h3>
+                        <div class="choix-roles">
+                            <button class="role-btn" data-role="ux">UX/UI</button>
+                            <button class="role-btn" data-role="pm">PM/PO</button>
+                            <button class="role-btn" data-role="dev">DEV</button>
+                        </div>
+                    </article>
+
+                    <article class="practice-card" data-practice="optimiser-images">
+                        <h3 class="practice-title">Optimiser les images</h3>
+                        <div class="choix-roles">
+                            <button class="role-btn" data-role="ux">UX/UI</button>
+                            <button class="role-btn" data-role="pm">PM/PO</button>
+                            <button class="role-btn" data-role="dev">DEV</button>
+                        </div>
+                    </article>
+
+                    <article class="practice-card" data-practice="cache">
+                        <h3 class="practice-title">Mettre en cache les données</h3>
+                        <div class="choix-roles">
+                            <button class="role-btn" data-role="ux">UX/UI</button>
+                            <button class="role-btn" data-role="pm">PM/PO</button>
+                            <button class="role-btn" data-role="dev">DEV</button>
+                        </div>
+                    </article>
+
+                    <article class="practice-card" data-practice="polices-systeme">
+                        <h3 class="practice-title">Favoriser les polices standards du système</h3>
+                        <div class="choix-roles">
+                            <button class="role-btn" data-role="ux">UX/UI</button>
+                            <button class="role-btn" data-role="pm">PM/PO</button>
+                            <button class="role-btn" data-role="dev">DEV</button>
+                        </div>
+                    </article>
+
+                    <article class="practice-card" data-practice="pas-autoplay">
+                        <h3 class="practice-title">Éviter la lecture et le chargement automatique de vidéos</h3>
+                        <div class="choix-roles">
+                            <button class="role-btn" data-role="ux">UX/UI</button>
+                            <button class="role-btn" data-role="pm">PM/PO</button>
+                            <button class="role-btn" data-role="dev">DEV</button>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="solution-container">
+                    <button class="js-toggle-solution btn-secondary">Afficher la solution</button>
+                    
+                    <div class="solution" style="display:none;">
+                        <h3>Solution : Répartition des responsabilités</h3>
+                        <p><strong>Voici la répartition suggérée :</strong></p>
+                        
+                        <div class="solution-grid">
+                            <div class="solution-column">
+                                <h4>PM/PO</h4>
+                                <ul>
+                                    <li>Limiter les fonctionnalités (MVP)</li>
+                                    <li>Éliminer les fonctionnalités non utilisées</li>
+                                    <li>Quantifier précisément le besoin</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="solution-column">
+                                <h4>UX/UI</h4>
+                                <ul>
+                                    <li>Favoriser un design simple, épuré</li>
+                                    <li>Préférer la pagination au scroll infini</li>
+                                    <li>Proposer un moteur de recherche efficace</li>
+                                    <li>Favoriser les polices standards du système</li>
+                                    <li>Éviter la lecture et le chargement automatique de vidéos</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="solution-column">
+                                <h4>DEV</h4>
+                                <ul>
+                                    <li>Limiter le nombre de requêtes HTTP</li>
+                                    <li>Optimiser les images</li>
+                                    <li>Mettre en cache les données</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="callout-warning">
+                            <p><strong>⚠️ Avez-vous trouvé l'intruse ?</strong></p>
+                            <p>"<strong>Intégrer un carrousel</strong>" n'est PAS une bonne pratique ! Elle est souvent source de mauvaises performances et d'une accessibilité réduite.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Exercice 2 : Le Radar de Maturité -->
+        <section id="exercice-2" class="section-content radar-section" aria-labelledby="exercice-2-title">
+            <div class="container">
+                <div class="section-header">
+                    <img src="../assets/images/icone-radar.png" alt="" class="section-icon" aria-hidden="true" width="80" height="80">
+                    <h2 id="exercice-2-title">Exercice 2 : Évaluez votre maturité</h2>
+                </div>
+                
+                <p class="section-intro">
+                    Cet exercice se fait en équipe. L'objectif est de vous auto-évaluer sur les 4 critères de la section "Stratégie" pour visualiser votre situation de départ.
+                </p>
+
+                <div class="radar-download">
+                    <h4>📥 Téléchargez le Radar de Maturité</h4>
+                    <p>Utilisez le fichier interactif pour évaluer votre équipe sur les 8 dimensions de l'écoconception.</p>
+                    <a href="../assets/documents/radar_de_maturite_ecoconception.pdf" class="download-btn" download>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        Télécharger le Radar (PDF)
+                    </a>
+                    <a href="../assets/documents/radar_de_maturite_ecoconception.ods" class="download-btn" download>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        Télécharger le Radar (Excel)
+                    </a>
+                </div>
+
+                <div class="radar-content">
+                    <div class="radar-visual">
+                        <img src="../assets/images/radar-maturite.webp" alt="Radar de maturité avec 8 axes : Stratégie, Spécifications, Architecture, UX/UI, Contenus, Frontend, Backend, Hébergement" class="radar-image">
+                    </div>
+
+                    <div class="radar-explanation">
+                        <h3>Critères "Stratégie" à évaluer :</h3>
+                        <div class="radar-details">
+                            <div class="radar-detail-item">
+                                <span class="detail-icon" aria-hidden="true">📋</span>
+                                <div class="detail-content">
+                                    <h4>Intégration stratégique</h4>
+                                    <p>L'écoconception est intégrée à la stratégie de l'organisation.</p>
+                                </div>
+                            </div>
+
+                            <div class="radar-detail-item">
+                                <span class="detail-icon" aria-hidden="true">👥</span>
+                                <div class="detail-content">
+                                    <h4>Portage managérial</h4>
+                                    <p>L'écoconception est portée par les sponsors et le management.</p>
+                                </div>
+                            </div>
+
+                            <div class="radar-detail-item">
+                                <span class="detail-icon" aria-hidden="true">💰</span>
+                                <div class="detail-content">
+                                    <h4>Budget alloué</h4>
+                                    <p>Un budget est-il alloué (formation, outils, temps dédié) ?</p>
+                                </div>
+                            </div>
+
+                            <div class="radar-detail-item">
+                                <span class="detail-icon" aria-hidden="true">🤝</span>
+                                <div class="detail-content">
+                                    <h4>Partage avec les parties prenantes</h4>
+                                    <p>La démarche est-elle partagée avec les parties prenantes (clients, partenaires, utilisateurs) ?</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="callout-info">
+                    <h3>💡 Conseil d'atelier</h3>
+                    <p>Il n'y a pas de bonne ou de mauvaise réponse. Cet outil est un support de discussion. L'objectif est d'aligner l'équipe sur les axes d'amélioration prioritaires avant de démarrer le projet.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fin de Module / Navigation -->
+        <section class="module-navigation" aria-labelledby="navigation-title">
+            <div class="container">
+                <hr>
+                <h2 id="navigation-title" class="visually-hidden">Navigation vers le module suivant</h2>
+                <p class="transition-message">Vous avez posé les bases. Passons maintenant au diagnostic technique.</p>
+                
+                <div class="navigation-buttons">
+                    <a href="../index.html" class="btn-back">← Retour à l'accueil</a>
+                    <a href="2-diagnostic-priorisation.html" class="cta-button">Passer au Module 2 : Diagnostic & Priorisation →</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer" role="contentinfo">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Navigation</h3>
+                <nav aria-label="Liens de navigation">
+                    <ul>
+                        <li><a href="../index.html">Accueil</a></li>
+                        <li><a href="index.html">Modules</a></li>
+                        <li><a href="../ressources.html">Ressources</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="footer-section">
+                <h3>À propos</h3>
+                <p>Site d'atelier générique - Contenu adaptable pour votre organisation.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Modules de formation</h3>
+                <nav aria-label="Liens modules">
+                    <ul>
+                        <li><a href="1-demarrage.html">Module 1 - Démarrage</a></li>
+                        <li><a href="2-diagnostic-priorisation.html">Module 2 - Diagnostic</a></li>
+                        <li><a href="3-communiquer.html">Module 3 - Communiquer</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 - Atelier Écoconception - Formation à la sobriété numérique</p>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/exercice-roles.js"></script>
+</body>
+</html>

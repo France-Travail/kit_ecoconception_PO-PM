@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Module 2 : Diagnostic & Priorisation - Auditer un service numérique et prioriser les actions d'écoconception">
+    <meta name="keywords" content="écoconception, diagnostic, audit, Green IT Analysis, priorisation, bonnes pratiques">
+    <meta name="author" content="Atelier Écoconception">
+    <title>Module 2 : Diagnostic & Priorisation - Atelier Écoconception</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="icon" type="image/svg+xml" href="../assets/images/logo.svg">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+    <header role="banner">
+        <nav class="main-nav" role="navigation" aria-label="Navigation principale">
+            <div class="nav-container">
+                <a href="../index.html" class="logo-link" title="Retour à l'accueil">
+                    <img src="../assets/images/logo.svg" alt="Atelier Écoconception - Accueil" class="logo" width="200" height="40">
+                </a>
+                
+                <button class="nav-toggle" aria-label="Menu de navigation" aria-expanded="false" aria-controls="nav-links">
+                    <span class="nav-toggle-bar"></span>
+                    <span class="nav-toggle-bar"></span>
+                    <span class="nav-toggle-bar"></span>
+                </button>
+                
+                <ul class="nav-links" id="nav-links">
+                    <li class="nav-item">
+                        <a href="../index.html" class="nav-link">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Modules</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../ressources.html" class="nav-link">Ressources</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <!-- Introduction du Module 2 -->
+        <section class="hero" aria-labelledby="module-title">
+            <div class="hero-content">
+                <h1 id="module-title">Module 2 : Diagnostic & Priorisation</h1>
+                <p class="hero-description">
+                    Nous passons de la théorie à la pratique. Dans ce module, vous allez apprendre à utiliser les outils professionnels pour auditer un service numérique existant, identifier les "points rouges" de performance et d'impact, et prioriser les actions correctives.
+                </p>
+            </div>
+        </section>
+
+        <!-- Exercice 3 : Réaliser un diagnostic de service -->
+        <section id="exercice-3" class="section-content" aria-labelledby="exercice-3-title">
+            <div class="container">
+                <h2 id="exercice-3-title">Exercice 3 : Auditer votre service</h2>
+                
+                <p class="section-intro">
+                    Nous allons utiliser deux outils principaux pour collecter des données sur votre service : l'extension <strong>Green IT Analysis</strong> et la <strong>Console Développeur</strong> de votre navigateur.
+                </p>
+
+                <!-- Partie A : Green IT Analysis -->
+                <article class="tool-section">
+                    <h3>Partie A : Installation et audit Green IT Analysis</h3>
+                    
+                    <div class="tool-instructions">
+                        <h4>Guide d'installation et d'utilisation :</h4>
+                        <ol class="step-list">
+                            <li>Ouvrez <strong>Firefox</strong> (ou <strong>Chrome</strong>) et rendez-vous sur le store des extensions.</li>
+                            <li>Recherchez et installez "<strong>Green IT Analysis</strong>".</li>
+                            <li>Une fois installée, ouvrez la page web que vous souhaitez analyser.</li>
+                            <li>Cliquez sur l'icône de l'extension dans la barre d'outils de votre navigateur.</li>
+                            <li>Lancez l'analyse et attendez quelques secondes pour obtenir les résultats.</li>
+                        </ol>
+
+                        <div class="callout-info">
+                            <p><strong>Conseil rapide :</strong> Vous pouvez aussi analyser les sites web de vos concurrents pour vous comparer !</p>
+                        </div>
+                    </div>
+
+                    <div class="tool-visuals">
+                        <figure>
+                            <img src="../assets/images/capture-green-it-1.png" alt="Capture d'écran de l'installation de Green IT Analysis" class="tool-screenshot">
+                            <figcaption>Installation de l'extension Green IT Analysis</figcaption>
+                        </figure>
+
+                        <figure>
+                            <img src="../assets/images/capture-green-it-2.png" alt="Capture d'écran de l'interface de Green IT Analysis montrant les résultats d'analyse" class="tool-screenshot">
+                            <figcaption>Interface de l'outil avec les résultats d'analyse</figcaption>
+                        </figure>
+                    </div>
+                </article>
+
+                <!-- Partie B : Console Développeur -->
+                <article class="tool-section">
+                    <h3>Partie B : Analyse de l'onglet Réseau</h3>
+                    
+                    <div class="tool-instructions">
+                        <h4>Guide d'utilisation de la Console Développeur :</h4>
+                        <ol class="step-list">
+                            <li>Sur la page à analyser, ouvrez les outils de développement (clic droit > "<strong>Inspecter</strong>" ou touche <kbd>F12</kbd>).</li>
+                            <li>Allez dans l'onglet "<strong>Réseau</strong>" (Network).</li>
+                            <li>Cochez la case "<strong>Désactiver le cache</strong>" pour simuler une première visite.</li>
+                            <li>Rechargez la page (<kbd>F5</kbd>) et observez les résultats en bas de la fenêtre (nombre de requêtes, poids total...).</li>
+                        </ol>
+                    </div>
+
+                    <div class="tool-visuals">
+                        <figure>
+                            <img src="../assets/images/capture-console-reseau.png" alt="Capture d'écran de l'onglet Réseau de la Console Développeur montrant le nombre de requêtes et le poids transféré" class="tool-screenshot">
+                            <figcaption>Onglet Réseau de la Console Développeur</figcaption>
+                        </figure>
+                    </div>
+                </article>
+
+                <!-- Partie C : Exercice - Tableau de diagnostic -->
+                <article class="exercise-section">
+                    <h3>À vous de jouer : Remplissez votre diagnostic</h3>
+                    
+                    <p>
+                        Utilisez les outils que vous venez de voir pour auditer un site de votre choix (votre site actuel, un concurrent, etc.) et remplissez le tableau de diagnostic suivant.
+                    </p>
+
+                    <div class="table-container">
+                        <table class="diagnostic-table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Thème</th>
+                                    <th scope="col">Constat (Ex: 150 req)</th>
+                                    <th scope="col">Outil utilisé</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Nombre de requêtes HTTP</td>
+                                    <td class="editable-cell"></td>
+                                    <td>Console (Réseau)</td>
+                                </tr>
+                                <tr>
+                                    <td>Poids total de la page (Mo)</td>
+                                    <td class="editable-cell"></td>
+                                    <td>Console (Réseau)</td>
+                                </tr>
+                                <tr>
+                                    <td>EcoIndex (Note /100)</td>
+                                    <td class="editable-cell"></td>
+                                    <td>Green IT Analysis</td>
+                                </tr>
+                                <tr>
+                                    <td>Complexité (Taille du DOM)</td>
+                                    <td class="editable-cell"></td>
+                                    <td>Green IT Analysis</td>
+                                </tr>
+                                <tr>
+                                    <td>Consommation d'eau (litres)</td>
+                                    <td class="editable-cell"></td>
+                                    <td>Green IT Analysis</td>
+                                </tr>
+                                <tr>
+                                    <td>Émissions GES (gCO2e)</td>
+                                    <td class="editable-cell"></td>
+                                    <td>Green IT Analysis</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="callout-info">
+                        <p><strong>Astuce :</strong> Prenez le temps de noter vos observations. Ce diagnostic servira de base pour l'exercice suivant.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Exercice 4 : Analyser et Prioriser -->
+        <section id="exercice-4" class="section-content prioritization-section" aria-labelledby="exercice-4-title">
+            <div class="container">
+                <h2 id="exercice-4-title">Exercice 4 : Prioriser les bonnes pratiques</h2>
+                
+                <p class="section-intro">
+                    Maintenant que vous avez identifié les faiblesses de votre service (ex: "Poids total trop élevé", "EcoIndex faible"), nous allons utiliser les tableaux de référence pour choisir les actions correctives ayant le plus de gains.
+                </p>
+
+                <!-- Partie A : Tableaux de référence -->
+                <article class="reference-section">
+                    <h3>Ressources de référence</h3>
+                    <p>Consultez les tableaux de bonnes pratiques ci-dessous pour identifier les actions les plus pertinentes selon votre diagnostic.</p>
+
+                    <!-- Tableau 1 : Bonnes pratiques UI & Code -->
+                    <details class="reference-accordion">
+                        <summary>
+                            <h4>Afficher les bonnes pratiques (UI, Code)</h4>
+                            <span class="accordion-icon" aria-hidden="true">▼</span>
+                        </summary>
+                        <div class="accordion-content">
+                            <div class="table-container">
+                                <table class="best-practices-table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Bonne pratique</th>
+                                            <th scope="col">Gain environnemental</th>
+                                            <th scope="col">Effort de mise en œuvre</th>
+                                            <th scope="col">Priorité</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Optimiser et compresser les images</td>
+                                            <td><strong class="gain-fort">Fort</strong></td>
+                                            <td>Faible</td>
+                                            <td><span class="priority-high">Haute</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Limiter le nombre de requêtes HTTP</td>
+                                            <td><strong class="gain-fort">Fort</strong></td>
+                                            <td>Moyen</td>
+                                            <td><span class="priority-high">Haute</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mettre en place un cache navigateur</td>
+                                            <td><strong class="gain-fort">Fort</strong></td>
+                                            <td>Faible</td>
+                                            <td><span class="priority-high">Haute</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Minifier CSS et JavaScript</td>
+                                            <td>Moyen</td>
+                                            <td>Faible</td>
+                                            <td><span class="priority-medium">Moyenne</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Éviter le chargement automatique de vidéos</td>
+                                            <td><strong class="gain-fort">Fort</strong></td>
+                                            <td>Faible</td>
+                                            <td><span class="priority-high">Haute</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Utiliser des polices système</td>
+                                            <td>Moyen</td>
+                                            <td>Faible</td>
+                                            <td><span class="priority-medium">Moyenne</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Réduire la complexité du DOM</td>
+                                            <td>Moyen</td>
+                                            <td>Moyen</td>
+                                            <td><span class="priority-medium">Moyenne</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Préférer la pagination au scroll infini</td>
+                                            <td>Moyen</td>
+                                            <td>Moyen</td>
+                                            <td><span class="priority-medium">Moyenne</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- Tableau 2 : Bonnes pratiques Données & Architecture -->
+                    <details class="reference-accordion">
+                        <summary>
+                            <h4>Afficher les bonnes pratiques (Données, Architecture)</h4>
+                            <span class="accordion-icon" aria-hidden="true">▼</span>
+                        </summary>
+                        <div class="accordion-content">
+                            <div class="table-container">
+                                <table class="best-practices-table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Bonne pratique</th>
+                                            <th scope="col">Gain environnemental</th>
+                                            <th scope="col">Effort de mise en œuvre</th>
+                                            <th scope="col">Priorité</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Optimiser les requêtes de base de données</td>
+                                            <td><strong class="gain-fort">Fort</strong></td>
+                                            <td>Moyen</td>
+                                            <td><span class="priority-high">Haute</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mettre en place un cache serveur</td>
+                                            <td><strong class="gain-fort">Fort</strong></td>
+                                            <td>Moyen</td>
+                                            <td><span class="priority-high">Haute</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Utiliser la compression Gzip/Brotli</td>
+                                            <td>Moyen</td>
+                                            <td>Faible</td>
+                                            <td><span class="priority-high">Haute</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Héberger sur un datacenter éco-responsable</td>
+                                            <td>Moyen</td>
+                                            <td>Faible à Fort</td>
+                                            <td><span class="priority-medium">Moyenne</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Optimiser les images côté serveur</td>
+                                            <td>Moyen</td>
+                                            <td>Moyen</td>
+                                            <td><span class="priority-medium">Moyenne</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Limiter les appels API externes</td>
+                                            <td>Moyen</td>
+                                            <td>Moyen</td>
+                                            <td><span class="priority-medium">Moyenne</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mettre en place un CDN</td>
+                                            <td>Moyen</td>
+                                            <td>Moyen</td>
+                                            <td><span class="priority-medium">Moyenne</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </details>
+                </article>
+
+                <!-- Partie B : Plan d'action -->
+                <article class="action-plan-section">
+                    <h3>À vous de jouer : Votre plan d'action priorisé</h3>
+                    
+                    <p>
+                        En croisant votre diagnostic (Exercice 3, Partie C) et les tableaux de référence (ci-dessus), identifiez <strong>3 actions prioritaires</strong> pour votre projet.
+                    </p>
+
+                    <div class="action-plan-form">
+                        <div class="action-item">
+                            <h4>Action prioritaire 1</h4>
+                            <div class="form-group">
+                                <label for="action-1">Action à mettre en œuvre :</label>
+                                <input type="text" id="action-1" placeholder="Ex: Optimiser et compresser les images">
+                            </div>
+                            <div class="form-group">
+                                <label for="justification-1">Justification :</label>
+                                <textarea id="justification-1" rows="3" placeholder="Ex: Le poids total de notre page est de 8Mo, dont 6Mo d'images. Gain environnemental 'Fort' et effort 'Faible'."></textarea>
+                            </div>
+                        </div>
+
+                        <div class="action-item">
+                            <h4>Action prioritaire 2</h4>
+                            <div class="form-group">
+                                <label for="action-2">Action à mettre en œuvre :</label>
+                                <input type="text" id="action-2" placeholder="Ex: Mettre en place un cache navigateur">
+                            </div>
+                            <div class="form-group">
+                                <label for="justification-2">Justification :</label>
+                                <textarea id="justification-2" rows="3" placeholder="Ex: Actuellement aucun cache n'est configuré. Cette action permettrait de réduire les requêtes sur les visites ultérieures."></textarea>
+                            </div>
+                        </div>
+
+                        <div class="action-item">
+                            <h4>Action prioritaire 3</h4>
+                            <div class="form-group">
+                                <label for="action-3">Action à mettre en œuvre :</label>
+                                <input type="text" id="action-3" placeholder="Ex: Limiter le nombre de requêtes HTTP">
+                            </div>
+                            <div class="form-group">
+                                <label for="justification-3">Justification :</label>
+                                <textarea id="justification-3" rows="3" placeholder="Ex: Nous avons identifié 150 requêtes HTTP par page. En regroupant certains fichiers, nous pourrions descendre à moins de 80."></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="callout-info">
+                        <h4>Conseil d'atelier</h4>
+                        <p>Concentrez-vous sur les <strong>"gains faciles"</strong> (quick wins). Une action à gain <strong>"Fort"</strong> et effort <strong>"Faible"</strong> est un candidat idéal pour commencer et montrer des résultats rapides.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Fin de Module / Navigation -->
+        <section class="module-navigation" aria-labelledby="navigation-title">
+            <div class="container">
+                <hr>
+                <h2 id="navigation-title" class="visually-hidden">Navigation vers le module suivant</h2>
+                <p class="transition-message">Excellent travail. Vous avez maintenant un diagnostic technique et un plan d'action. L'étape suivante ? Apprendre à "vendre" cet effort à votre équipe et à vos managers.</p>
+                
+                <div class="navigation-buttons">
+                    <a href="1-demarrage.html" class="btn-back">← Retour au Module 1</a>
+                    <a href="3-communiquer.html" class="cta-button">Passer au Module 3 : Communiquer l'impact →</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer" role="contentinfo">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Navigation</h3>
+                <nav aria-label="Liens de navigation">
+                    <ul>
+                        <li><a href="../index.html">Accueil</a></li>
+                        <li><a href="index.html">Modules</a></li>
+                        <li><a href="../ressources.html">Ressources</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="footer-section">
+                <h3>À propos</h3>
+                <p>Site d'atelier générique - Contenu adaptable pour votre organisation.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Modules de formation</h3>
+                <nav aria-label="Liens modules">
+                    <ul>
+                        <li><a href="1-demarrage.html">Module 1 - Démarrage</a></li>
+                        <li><a href="2-diagnostic-priorisation.html">Module 2 - Diagnostic</a></li>
+                        <li><a href="3-communiquer.html">Module 3 - Communiquer</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 - Atelier Écoconception - Formation à la sobriété numérique</p>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>
