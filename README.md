@@ -6,8 +6,7 @@ Ce dépôt contient le code source d'un site web statique d'auto-formation à l'
 **➡️ [Accéder à l'atelier en ligne](https://france-travail.github.io/kit_ecoconception_PO-PM/)** ---
 
 Il est complémentaire au Référentiel d'écoconception, également disponible sur github https://github.com/France-Travail/referentiel-ecoconception, ainsi que : 
-
-    * au **kit de sensibilisation à la conception écoresponsable** https://github.com/France-Travail/sensibilisation-conception-responsable, 
+    * au **kit de sensibilisation à la conception écoresponsable** https://github.com/France-Travail/sensibilisation-conception-responsable,
     * à la **formation à l'écoconception destinées aux équipes techniques** https://github.com/France-Travail/formation-ecoconception-dev/.
     * au **starter kit d'éconception destiné aux équipes UX/UI** https://github.com/France-Travail/starter-kit-ecoconception
 
